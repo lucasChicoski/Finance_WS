@@ -1,0 +1,8 @@
+import { Despesas } from "despesas"
+
+model CategoryExpenses {
+   id       Int        @id @default(autoincrement())
+   category String
+   icon     String     @default("")
+   Despesas Despesas[]
+}

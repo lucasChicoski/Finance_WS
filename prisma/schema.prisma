@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Wed Aug 14 2024 15:44:49 GMT-0300 (Horário Padrão de Brasília)✨
+//🧩Don't Edit this file.✨Generated in Thu Aug 15 2024 15:27:57 GMT-0300 (Horário Padrão de Brasília)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -7,6 +7,13 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model CategoryExpenses {
+  id       Int        @id @default(autoincrement())
+  category String
+  icon     String     @default("")
+  Despesas Despesas[]
 }
 
 model Despesas {
@@ -25,6 +32,8 @@ model Despesas {
   id_user                Int
   despesas_parceladas    DespesasParceladas? @relation(fields: [id_despesas_parceladas], references: [id])
   id_despesas_parceladas Int?
+  id_category            Int
+  category               CategoryExpenses    @relation(fields: [id_category], references: [id])
 }
 
 model DespesasParceladas {
