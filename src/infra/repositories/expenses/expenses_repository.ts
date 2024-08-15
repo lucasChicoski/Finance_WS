@@ -37,7 +37,10 @@ export class ExpensesRepository implements IExpensesRepository {
         throw new Error("Method not implemented.");
     }
     async getExpense(userId: number): Promise<any> {
-        const result = await this.prismaDB.despesas.findMany({ where: { id_user: userId }, orderBy: { date: 'desc' } })
+        const currentYear = new Date().getFullYear()
+        const currentMonth = new Date().getMonth() + 1
+
+        const result = await this.prismaDB.despesas.findMany({ where: { id_user: userId, AND: { month: { lte: currentMonth }, year: currentYear }, }, orderBy: { date: 'desc' } },)
         return result
     }
     async deleteExpense(hash: string): Promise<any> {
