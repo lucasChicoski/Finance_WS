@@ -1,0 +1,36 @@
+{
+  "name": "finance_projetct_web_service",
+  "version": "1.0.0",
+  "description": "web_service_finance_project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon src/app.ts",
+    "build": "tsup src",
+    "prisma:studio": "npx prisma studio",
+    "prisma:generate": "prisma generate",
+    "ms:generate": "prisma-multischema",
+    "pris:migration": "prisma migrate dev --name init"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.1.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "prisma": "^5.18.0",
+    "prisma-multischema": "^1.1.4",
+    "tsup": "^8.2.4"
+  }
+}

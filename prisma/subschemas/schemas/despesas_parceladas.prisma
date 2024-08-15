@@ -1,0 +1,15 @@
+import { Despesas } from "./despesas"
+import { User } from "user"
+
+model DespesasParceladas {
+   id                  Int        @id @default(autoincrement())
+   descricao_despesa   String
+   valor_gasto         Float
+   prestacoes          Float
+   parcela             Int
+   despesas_parceladas Despesas[]
+   user_id             Int
+   user                User       @relation(fields: [user_id], references: [id])
+}
+
+

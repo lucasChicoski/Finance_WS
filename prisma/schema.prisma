@@ -1,0 +1,60 @@
+//🧩Don't Edit this file.✨Generated in Wed Aug 14 2024 15:44:49 GMT-0300 (Horário Padrão de Brasília)✨
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Despesas {
+  id                     Int                 @id @default(autoincrement())
+  tipo_despesa           String
+  descricao_despesa      String
+  valor_gasto            Float
+  prestacoes             Float
+  parcela                Float
+  month                  Int
+  year                   Int
+  hash                   String              @unique
+  date                   DateTime
+  is_divided             Boolean
+  user                   User                @relation(fields: [id_user], references: [id])
+  id_user                Int
+  despesas_parceladas    DespesasParceladas? @relation(fields: [id_despesas_parceladas], references: [id])
+  id_despesas_parceladas Int?
+}
+
+model DespesasParceladas {
+  id                  Int        @id @default(autoincrement())
+  descricao_despesa   String
+  valor_gasto         Float
+  prestacoes          Float
+  parcela             Int
+  despesas_parceladas Despesas[]
+  user_id             Int
+  user                User       @relation(fields: [user_id], references: [id])
+}
+
+model FinanceConfig {
+  id              Int   @id @default(autoincrement())
+  renda           Float
+  guarde_dinheiro Float
+  balance         Float
+  user_id         Int   @unique
+  user            User  @relation(fields: [user_id], references: [id])
+}
+
+model User {
+  id                 Int                  @id @default(autoincrement())
+  nome               String
+  sobrenome          String
+  email              String
+  data_nascimento    DateTime
+  telefone           String
+  fiance_config      FinanceConfig?
+  Despesas           Despesas[]
+  despesasParceladas DespesasParceladas[]
+}

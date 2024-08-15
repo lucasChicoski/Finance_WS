@@ -1,0 +1,11 @@
+import { User } from "./user"
+
+model FinanceConfig {
+   id              Int   @id @default(autoincrement())
+   renda           Float
+   guarde_dinheiro Float
+   balance         Float
+   user_id         Int   @unique
+   user            User  @relation(fields: [user_id], references: [id])
+}
+
