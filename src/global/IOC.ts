@@ -1,4 +1,5 @@
 import { prismaInstance } from "../../prisma/prisma_instance";
+import { CategoryRepository } from "../infra/repositories/category/category_repository";
 import { ExpensesRepository } from "../infra/repositories/expenses/expenses_repository";
 import { ExpensesInstallmentsRepository } from "../infra/repositories/expenses_installments/expenses_installments_repository,";
 import { UserRepository } from "../infra/repositories/user/user_repository";
@@ -9,7 +10,8 @@ export enum RepositoryTtype {
     FinanceConfig,
     UserConfig,
     Expense,
-    ExpenseInstallments
+    ExpenseInstallments,
+    Category
 }
 
 export class RepositoryFactory {
@@ -27,6 +29,9 @@ export class RepositoryFactory {
 
             case RepositoryTtype.ExpenseInstallments:
                 return new ExpensesInstallmentsRepository(prismaInstance)
+
+            case RepositoryTtype.Category:
+                return new CategoryRepository(prismaInstance)
 
             default:
                 throw ('Repositorio não encontrado')

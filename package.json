@@ -11,7 +11,8 @@
     "prisma:generate": "prisma generate",
     "ms:generate": "prisma-multischema",
     "pris:migration": "prisma migrate dev --name init",
-    "pris:dev": "prisma-multischema && node scripts/migration-dev.js && node scripts/prisma-deploy.js"
+    "pris:dev": "prisma-multischema && node scripts/migration-dev.js && node scripts/prisma-deploy.js",
+    "seed": "ts-node prisma/seed.ts"
   },
   "author": "",
   "license": "ISC",

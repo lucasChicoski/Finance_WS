@@ -2,7 +2,7 @@
 CREATE TABLE "CategoryExpenses" (
     "id" SERIAL NOT NULL,
     "category" TEXT NOT NULL,
-    "icon" TEXT NOT NULL,
+    "icon" TEXT NOT NULL DEFAULT '',
 
     CONSTRAINT "CategoryExpenses_pkey" PRIMARY KEY ("id")
 );

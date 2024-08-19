@@ -27,7 +27,8 @@ export class ExpensesRepository implements IExpensesRepository {
                 valor_gasto: expense.valorGasto,
                 id_despesas_parceladas: expense.expenseInstallmentId,
                 id_user: expense.userId,
-                year: expense.year
+                year: expense.year,
+                id_category: 1
             }
         })
 
