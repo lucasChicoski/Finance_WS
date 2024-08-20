@@ -9,7 +9,6 @@ export class CategoryRepository implements ICategoryRepository {
         this.prismaDB = prismaInstance
     }
     async getCategories(): Promise<any> {
-
         const result = await this.prismaDB.categoryExpenses.findMany()
         return result
     }

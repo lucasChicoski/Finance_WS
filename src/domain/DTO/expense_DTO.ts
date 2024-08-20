@@ -11,4 +11,5 @@ export interface expenseDTO {
     userId: number
     expenseInstallmentId?: number
     year: number
+    categoryId: number
 }

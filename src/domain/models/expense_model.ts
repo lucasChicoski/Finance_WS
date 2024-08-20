@@ -16,6 +16,7 @@ export class ExpenseModel {
     userId: number
     expenseInstallmentId?: number
     year: number
+    categoryId: number
 
     constructor(value: expenseDTO, id?: number) {
         if (id) {
@@ -32,11 +33,11 @@ export class ExpenseModel {
         this.parcela = value.parcela
         this.date = value.date
         this.isDivided = value.isDivided,
-        this.year = value.year
+            this.year = value.year
+        this.categoryId = value.categoryId
     }
 
     static fromJson(json: any) {
-//json.json.
 
         return new ExpenseModel({
             expenseInstallmentId: json?.id_despesas_parceladas,
@@ -49,9 +50,9 @@ export class ExpenseModel {
             tipoDespesa: json.tipo_despesa,
             valorGasto: json.valueSpent,
             isDivided: json.is_divided,
-            // date: new Date(json.date) ,
             date: this.getCurrentDate(json.date),
-            year: json.year
+            year: json.year,
+            categoryId: json.category_id,
         })
 
     }
