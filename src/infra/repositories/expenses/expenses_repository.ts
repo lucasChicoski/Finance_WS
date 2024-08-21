@@ -41,7 +41,18 @@ export class ExpensesRepository implements IExpensesRepository {
         const currentYear = new Date().getFullYear()
         const currentMonth = new Date().getMonth() + 1
 
-        const result = await this.prismaDB.despesas.findMany({ where: { id_user: userId, AND: { month: { lte: currentMonth }, year: currentYear }, }, orderBy: { date: 'desc' } },)
+        const result = await this.prismaDB.despesas.findMany({
+            where: {
+                id_user: userId, AND: {
+                    month: {
+                        lte: currentMonth
+                    },
+                    year: currentYear
+                },
+            }, orderBy: {
+                date: 'desc'
+            }
+        },)
         return result
     }
     async deleteExpense(hash: string): Promise<any> {

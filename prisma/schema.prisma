@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon Aug 19 2024 11:27:54 GMT-0300 (Horário Padrão de Brasília)✨
+//🧩Don't Edit this file.✨Generated in Tue Aug 20 2024 23:13:36 GMT-0300 (Horário Padrão de Brasília)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -13,6 +13,7 @@ model CategoryExpenses {
   id       Int        @id @default(autoincrement())
   category String
   icon     String     @default("")
+  colors   String     @default("")
   Despesas Despesas[]
 }
 

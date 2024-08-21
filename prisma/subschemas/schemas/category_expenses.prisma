@@ -4,5 +4,6 @@ model CategoryExpenses {
    id       Int        @id @default(autoincrement())
    category String
    icon     String     @default("")
+   colors   String     @default("")
    Despesas Despesas[]
 }

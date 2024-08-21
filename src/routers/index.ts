@@ -5,6 +5,7 @@ import { expensesRouters } from "./expenses/expenses";
 import { status } from "./status/status_router";
 import { installmentsExpensesRouters } from "./expenses/installments_expenses";
 import { categoryRouters } from "./category/category";
+import { queries } from "./query/queries";
 
 
 function indexRouters(app: Router) {
@@ -14,6 +15,7 @@ function indexRouters(app: Router) {
     status(app)
     installmentsExpensesRouters(app)
     categoryRouters(app)
+    queries(app)
 }
 
 
