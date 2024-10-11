@@ -5,7 +5,7 @@ import { QueryExpensesService } from "../../services/chart_query/expense_query/q
 const ctl: QueryExpensesController = new QueryExpensesController(new QueryExpensesService())
 
 function routers(app: Router) {
-    app.post('/teste', (req: Request, res: Response) => ctl.getExpenseGroupByCategoryExpense(req, res))
+    app.post('/group-by-category-expense', (req: Request, res: Response) => ctl.getExpenseGroupByCategoryExpense(req, res))
 }
 
 
