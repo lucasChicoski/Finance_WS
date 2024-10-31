@@ -9,8 +9,8 @@ model User {
    email              String
    data_nascimento    DateTime
    telefone           String
+   password           String
    fiance_config      FinanceConfig?
    Despesas           Despesas[]
    despesasParceladas DespesasParceladas[]
 }
-
