@@ -12,8 +12,19 @@ export class UserRepository implements IUserRepository {
         this.prismaDB = prismaInstance
     }
 
-    createUser(user: UserModel): Promise<any> {
-        throw new Error("Method not implemented.");
+    async createUser(user: UserModel): Promise<any> {
+        const result = await this.prismaDB.user.create({
+            data: {
+                email: user.email,
+                password: user.passwd,
+                nome: user.name,
+                sobrenome: user.lastName,
+                telefone: user.phoneNumber,
+                cpf: user.cpf,
+            }
+        });
+
+        return result as User
     }
 
     async getUser(id: number): Promise<any> {

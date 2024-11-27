@@ -4,12 +4,13 @@ import {DespesasParceladas} from "./despesas_parceladas"
 
 model User {
    id                 Int                  @id @default(autoincrement())
-   nome               String
-   sobrenome          String
-   email              String
-   data_nascimento    DateTime
-   telefone           String
-   password           String
+   nome               String               @default("")
+   sobrenome          String               @default("")
+   email              String               @default("")
+   data_nascimento    DateTime?
+   telefone           String               @default("")
+   password           String               @default("")
+   cpf                String               @default("")
    fiance_config      FinanceConfig?
    Despesas           Despesas[]
    despesasParceladas DespesasParceladas[]

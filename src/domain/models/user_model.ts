@@ -3,12 +3,14 @@ import { UserDTO } from "../DTO/user_DTO"
 
 export class UserModel {
 
-    id?: number
-    nome: string
-    sobrenome: string
-    email: string
-    data_nascimento: string
-    telefone: string
+    id?: number;
+    name: string;
+    lastName: string;
+    birthDate?: string;
+    email: string;
+    phoneNumber: string;
+    cpf: string;
+    passwd: string;
 
     constructor(value: UserDTO, id?: number) {
 
@@ -16,10 +18,32 @@ export class UserModel {
             this.id = id
         }
 
-        this.data_nascimento = value.data_nascimento
-        this.nome = value.nome
-        this.sobrenome = value.sobrenome
+        this.checkAtributes(value)
+
+        this.birthDate = value.birthDate
+        this.name = value.name
+        this.lastName = value.lastName
         this.email = value.email
-        this.telefone = value.telefone
+        this.phoneNumber = value.phoneNumber
+        this.cpf = value.cpf
+        this.passwd = value.passwd
+    }
+
+
+    private checkAtributes(value: any) {
+        const requiredAtributes = ["name", "lastName", "email", "phoneNumber", "cpf", "passwd"]
+        const listAtributesMissing: any = []
+
+        requiredAtributes.map((atribute) => {
+            if (!value[atribute]) listAtributesMissing.push(atribute)
+        })
+
+        if (listAtributesMissing.length > 0) {
+            throw {
+                status: 400,
+                message: `Os seguintes campos são obrigatórios: ${listAtributesMissing.join(", ")}`
+            }
+        }
+
     }
 }

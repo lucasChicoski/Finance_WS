@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Tue Oct 29 2024 21:32:26 GMT-0300 (Horário Padrão de Brasília)✨
+//🧩Don't Edit this file.✨Generated in Tue Nov 26 2024 22:36:22 GMT-0300 (Horário Padrão de Brasília)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -59,12 +59,13 @@ model FinanceConfig {
 
 model User {
   id                 Int                  @id @default(autoincrement())
-  nome               String
-  sobrenome          String
-  email              String
-  data_nascimento    DateTime
-  telefone           String
-  password           String
+  nome               String               @default("")
+  sobrenome          String               @default("")
+  email              String               @default("")
+  data_nascimento    DateTime?
+  telefone           String               @default("")
+  password           String               @default("")
+  cpf                String               @default("")
   fiance_config      FinanceConfig?
   Despesas           Despesas[]
   despesasParceladas DespesasParceladas[]

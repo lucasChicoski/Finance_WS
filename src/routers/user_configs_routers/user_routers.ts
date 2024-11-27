@@ -7,7 +7,7 @@ const ct: UserController = new UserController(srv)
 
 function routers(app: Router) {
     app.post('/get-user', (req: Request, res: Response) => ct.getUser(req, res))
-    app.post('/create-user')
+    app.post('/create-user', (req: Request, res: Response) => ct.createUser(req, res))
 }
 
 

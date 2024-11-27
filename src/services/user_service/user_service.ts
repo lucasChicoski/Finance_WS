@@ -11,12 +11,12 @@ export class UserService implements IUserService {
         this.userRepo = RepositoryFactory.getRepository(RepositoryTtype.UserConfig)
     }
 
-    createUser(user: UserModel): Promise<any> {
-        throw new Error("Method not implemented.");
+    async createUser(user: UserModel): Promise<any> {
+        const result = await this.userRepo.createUser(user)
+        return result
     }
     async getUser(id: number): Promise<any> {
         const result = await this.userRepo.getUser(id)
-
         return result
     }
 }
