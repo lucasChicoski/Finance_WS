@@ -19,7 +19,6 @@ export class UserRepository implements IUserRepository {
                 password: user.passwd,
                 nome: user.name,
                 sobrenome: user.lastName,
-                telefone: user.phoneNumber,
                 cpf: user.cpf,
             }
         });

@@ -6,11 +6,11 @@ model User {
    id                 Int                  @id @default(autoincrement())
    nome               String               @default("")
    sobrenome          String               @default("")
-   email              String               @default("")
+   email              String               @unique @default("")
    data_nascimento    DateTime?
-   telefone           String               @default("")
+   telefone           String?
    password           String               @default("")
-   cpf                String               @default("")
+   cpf                String               @unique @default("")
    fiance_config      FinanceConfig?
    Despesas           Despesas[]
    despesasParceladas DespesasParceladas[]

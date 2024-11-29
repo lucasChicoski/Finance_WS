@@ -13,12 +13,21 @@ export class UserController {
         const body = req.body
 
         try {
-            this.userService.createUser(new UserModel(body))
-            const y = 0
-            res.send('Usuario Criado com sucesso')
+            const result = await this.userService.createUser(new UserModel(body))
+            res.json({
+                data: result,
+                message: 'Usuario criado com sucesso',
+                statusText: 'success',
+                statusCode: 200
+            })
         } catch (error: unknown) {
             const err = error as Error
-            res.json(err)
+            res.json({
+                data: null,
+                message: 'Não foi possivel cadastrar o usuário, contatar o admin',
+                statusText: 'err',
+                statusCode: 400
+            })
         }
 
     }

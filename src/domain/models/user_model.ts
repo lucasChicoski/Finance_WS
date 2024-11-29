@@ -31,7 +31,7 @@ export class UserModel {
 
 
     private checkAtributes(value: any) {
-        const requiredAtributes = ["name", "lastName", "email", "phoneNumber", "cpf", "passwd"]
+        const requiredAtributes = ["name", "lastName", "email", "cpf", "passwd"]
         const listAtributesMissing: any = []
 
         requiredAtributes.map((atribute) => {
