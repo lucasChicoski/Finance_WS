@@ -24,7 +24,7 @@ export class UserController {
             const err = error as Error
             res.json({
                 data: null,
-                message: 'Não foi possivel cadastrar o usuário, contatar o admin',
+                message: err.message,
                 statusText: 'err',
                 statusCode: 400
             })
