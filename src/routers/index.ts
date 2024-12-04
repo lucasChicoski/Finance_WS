@@ -6,6 +6,7 @@ import { status } from "./status/status_router";
 import { installmentsExpensesRouters } from "./expenses/installments_expenses";
 import { categoryRouters } from "./category/category";
 import { queries } from "./query/queries";
+import { authRouters } from "./auth/auth";
 
 
 function indexRouters(app: Router) {
@@ -16,6 +17,7 @@ function indexRouters(app: Router) {
     installmentsExpensesRouters(app)
     categoryRouters(app)
     queries(app)
+    authRouters(app)
 }
 
 
