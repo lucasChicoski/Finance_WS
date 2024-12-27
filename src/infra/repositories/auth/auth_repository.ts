@@ -2,8 +2,6 @@ import { PrismaClient } from "@prisma/client";
 import AuthDTO from "../../../domain/DTO/auth_DTO";
 import IAuthRepository from "./i_auth_repository";
 
-
-
 export class AuthRepository implements IAuthRepository {
     private prismaDB: PrismaClient
 
@@ -23,7 +21,10 @@ export class AuthRepository implements IAuthRepository {
                     password: false,
                     nome: true,
                     sobrenome: true,
-                    cpf: true
+                    cpf: true,
+                    Despesas: true,
+                    despesasParceladas: true,
+                    finance_config: true
                 },
             })
             return result

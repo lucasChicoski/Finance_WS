@@ -27,7 +27,7 @@ export class UserRepository implements IUserRepository {
     }
 
     async getUser(id: number): Promise<any> {
-        const result = await this.prismaDB.user.findUnique({ where: { id: id }, include: { fiance_config: true } })
+        const result = await this.prismaDB.user.findUnique({ where: { id: id }, include: { finance_config: true } })
         return result as User
     }
 }
