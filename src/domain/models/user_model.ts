@@ -1,4 +1,5 @@
 import { UserDTO } from "../DTO/user_DTO"
+import { ExpenseModel } from "./expense_model";
 
 
 export class UserModel {
@@ -11,6 +12,8 @@ export class UserModel {
     phoneNumber: string;
     cpf: string;
     passwd: string;
+    Despesas: Array<ExpenseModel>;
+    despesasAgrupadas: any
 
     constructor(value: UserDTO, id?: number) {
 
@@ -19,7 +22,7 @@ export class UserModel {
         }
 
         this.checkAtributes(value)
-
+        this.Despesas = value.despesas
         this.birthDate = value.birthDate
         this.name = value.name
         this.lastName = value.lastName

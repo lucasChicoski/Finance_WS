@@ -1,3 +1,4 @@
+import { expenseDTO } from "./expense_DTO";
 
 
 export interface UserDTO {
@@ -8,5 +9,6 @@ export interface UserDTO {
     email: string,
     phoneNumber: string,
     cpf: string,
-    passwd: string
+    passwd: string;
+    despesas: Array<expenseDTO>
 }

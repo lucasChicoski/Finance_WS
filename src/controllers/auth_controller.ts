@@ -15,8 +15,15 @@ export class AuthController {
 
      async handleLogin(req: Request, res: Response){
         const {cpf, passwd}: any = req.body
-        const result = await this.service.login({cpf, passwd})
-        return res.json(result)
+
+      try {
+          const result = await this.service.login({ cpf, passwd }) 
+          return res.json(result)
+      } catch (error) {
+         
+         return res.json(error)
+      }
+
      }
 
 }

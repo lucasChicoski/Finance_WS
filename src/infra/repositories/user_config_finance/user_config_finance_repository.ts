@@ -31,7 +31,7 @@ export class UserConfigFinanceRepository implements IUserConfigFinanceRepository
         return result
     }
     async upateFinanceConfig(value: FinanceConfigModel): Promise<any> {
-        const result = this.prismaDB.financeConfig.update({
+        const result = await this.prismaDB.financeConfig.update({
             where: { user_id: value.userId }, data: {
                 balance: value.balance,
                 guarde_dinheiro: value.guardeDinheiro,
