@@ -1,3 +1,4 @@
+import { ExpenseModel } from "../models/expense_model";
 import { expenseDTO } from "./expense_DTO";
 
 
@@ -10,5 +11,5 @@ export interface UserDTO {
     phoneNumber: string,
     cpf: string,
     passwd: string;
-    despesas: Array<expenseDTO>
+    despesas: Array<ExpenseModel>
 }

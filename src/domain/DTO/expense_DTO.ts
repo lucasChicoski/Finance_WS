@@ -1,15 +1,16 @@
 export interface expenseDTO {
-    hash: string
-    month: number
-    valorGasto: number
-    descricaoDespesa: string
     tipoDespesa: string
-    prestacoes: number
-    parcela: number
-    date: Date
+    descricao: string
+    valorGasto: number
+    data: Date
+    categoria: string
     isDivided: boolean
-    userId: number
-    expenseInstallmentId?: number
+    prestacoes: number | null //Quantidade de prestações
+    parcela: number // Valor da parcela
+    idUser: number
+    idDespesaParcelada: number | null
+    idCategory: number
+    month: number
     year: number
-    categoryId: number
+    hash: string
 }

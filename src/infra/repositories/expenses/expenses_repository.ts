@@ -16,8 +16,8 @@ export class ExpensesRepository implements IExpensesRepository {
         const result = await this.prismaDB.despesas.create({
 
             data: {
-                date: expense.date,
-                descricao_despesa: expense.descricaoDespesa,
+                date: expense.data,
+                descricao_despesa: expense.descricao,
                 hash: expense.hash,
                 is_divided: expense.isDivided,
                 month: expense.month,
@@ -25,10 +25,10 @@ export class ExpensesRepository implements IExpensesRepository {
                 prestacoes: expense.prestacoes,
                 tipo_despesa: expense.tipoDespesa,
                 valor_gasto: expense.valorGasto,
-                id_despesas_parceladas: expense.expenseInstallmentId,
-                id_user: expense.userId,
+                id_despesas_parceladas: expense.idDespesaParcelada,
+                id_user: expense.idUser,
                 year: expense.year,
-                id_category: expense.categoryId
+                id_category: expense.idCategory
             }
         })
 

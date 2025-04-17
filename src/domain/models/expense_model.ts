@@ -2,57 +2,61 @@ import { expenseDTO } from "../DTO/expense_DTO"
 
 
 export class ExpenseModel {
-
     id?: number
-    hash: string
-    month: number
-    valorGasto: number
-    descricaoDespesa: string
     tipoDespesa: string
+    descricao: string
+    valorGasto: number
+    data: Date
+    categoria: string
+    isDivided: boolean
+    idUser: number
+    idDespesaParcelada: number | null
     prestacoes: number
     parcela: number
-    date: Date
-    isDivided: boolean
-    userId: number
-    expenseInstallmentId?: number
+    idCategory: number
+    month: number
     year: number
-    categoryId: number
+    hash: string
 
     constructor(value: expenseDTO, id?: number) {
         if (id) {
             this.id = id
         }
-        this.userId = value.userId
-        this.expenseInstallmentId = value.expenseInstallmentId
-        this.hash = value.hash
-        this.month = value.month
-        this.valorGasto = value.valorGasto
-        this.descricaoDespesa = value.descricaoDespesa
         this.tipoDespesa = value.tipoDespesa
-        this.prestacoes = value.prestacoes
-        this.parcela = value.parcela
-        this.date = value.date
-        this.isDivided = value.isDivided,
-            this.year = value.year
-        this.categoryId = value.categoryId
+        this.descricao = value.descricao
+        this.valorGasto = value.valorGasto
+        this.data = value.data
+        this.categoria = value.categoria
+        this.isDivided = value?.isDivided ?? false
+        this.idUser = value.idUser
+        this.idDespesaParcelada = value?.idDespesaParcelada ?? null
+        this.idCategory = value.idCategory
+        this.prestacoes = value?.prestacoes ?? 1 //Quantidade de prestações
+        this.parcela = value.parcela // Valor da parcela
+        this.month = value.month
+        this.year = value.year
+        this.hash = value.hash
     }
 
     static fromJson(json: any) {
+        //Separar mes e ano
+
 
         return new ExpenseModel({
-            expenseInstallmentId: json?.id_despesas_parceladas,
-            userId: json.user_id ?? json.id_user,
-            hash: json.hash,
-            descricaoDespesa: json.descriptionSpent,
+            categoria: json.categoria,
+            data: json.data,
+            tipoDespesa: json.tipoDespesa,
+            descricao: json.descricao,
+            valorGasto: json.valorGasto,
+            isDivided: json?.isDivided ?? false,
+            idUser: json.id_user,
+            idDespesaParcelada: json?.id_despesas_parceladas ?? null,
+            idCategory: json.id_category,
+            prestacoes: json?.prestacoes ?? 1,
+            parcela: json.parcela,
             month: json.month,
-            parcela: json.parcela == 0 ? 1 : json.parcela,
-            prestacoes: json.prestacoes,
-            tipoDespesa: json.tipo_despesa,
-            valorGasto: json.valueSpent,
-            isDivided: json.is_divided,
-            date: this.getCurrentDate(json.date),
             year: json.year,
-            categoryId: json.category_id,
+            hash: 'asdasdasd'
         })
 
     }
