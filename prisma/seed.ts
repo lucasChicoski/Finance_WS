@@ -63,7 +63,7 @@ async function seedUser() {
             email: 'lucas.chicoski9@gmail.com',
             sobrenome: 'Chicoski',
             telefone: '(27) 98109-2836',
-            password: '123456'
+            password: '123'
         }
     })
 }
