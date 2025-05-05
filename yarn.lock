@@ -1442,7 +1442,7 @@ postcss-load-config@^6.0.1:
 
 prisma-multischema@^1.1.4:
   version "1.1.4"
-  resolved "https://registry.npmjs.org/prisma-multischema/-/prisma-multischema-1.1.4.tgz"
+  resolved "https://registry.yarnpkg.com/prisma-multischema/-/prisma-multischema-1.1.4.tgz#cfb6a48b550045629a21be0c9a1d069a5c61cd02"
   integrity sha512-38tQy7T8yIfdGNAOjhLuP/ZrmdWaPaYXPE1au7rLHDm5h5GFHFAtouVD2ihsSnXT0L1VSWd/yxNUOlsvKOcFZQ==
 
 prisma@^5.18.0:

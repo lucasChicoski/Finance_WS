@@ -12,6 +12,7 @@
     "ms:generate": "prisma-multischema",
     "pris:migration": "prisma migrate dev --name init",
     "pris:dev": "prisma-multischema && node scripts/migration-dev.js && node scripts/prisma-deploy.js",
+    "pris:dev2":"node node_modules/.bin/prisma-multischema && node scripts/migration-dev.js && node scripts/prisma-deploy.js",
     "seed": "ts-node prisma/seed.ts"
   },
   "author": "",
