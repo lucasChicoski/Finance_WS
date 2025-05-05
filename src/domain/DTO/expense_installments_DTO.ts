@@ -1,4 +1,3 @@
-import { ExpenseModel } from "../models/expense_model"
 
 
 export interface ExpensesInstallmentsDTO {
