@@ -7,7 +7,7 @@ model Despesas {
    tipo_despesa           String
    descricao_despesa      String
    valor_gasto            Float
-   prestacoes             Float
+   quantidade_parcela     Int
    parcela                Float
    month                  Int
    year                   Int

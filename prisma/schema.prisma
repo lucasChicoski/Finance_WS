@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sun May 04 2025 22:36:04 GMT-0300 (Horário Padrão de Brasília)✨
+//🧩Don't Edit this file.✨Generated in Mon May 05 2025 12:52:31 GMT-0300 (Horário Padrão de Brasília)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -22,7 +22,7 @@ model Despesas {
   tipo_despesa           String
   descricao_despesa      String
   valor_gasto            Float
-  prestacoes             Float
+  quantidade_parcela     Int
   parcela                Float
   month                  Int
   year                   Int
