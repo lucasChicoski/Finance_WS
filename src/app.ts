@@ -12,7 +12,7 @@ const app = express()
 app.use(express.json())
 app.use(cors({ origin: '*' }))
 
-app.set('views', path.join(__dirname, 'presentation'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 indexRouters(app)
