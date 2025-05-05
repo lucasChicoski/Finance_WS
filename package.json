@@ -35,6 +35,7 @@
     "prisma-multischema": "^1.1.4",
     "scanf": "^1.2.0",
     "shelljs": "^0.8.5",
-    "tsup": "^8.2.4"
+    "tsup": "^8.2.4",
+    "uuid": "^11.1.0"
   }
 }

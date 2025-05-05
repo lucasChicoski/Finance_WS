@@ -1,4 +1,6 @@
+import { calculoParcela } from "../../utils/scripts/calculo-parcela"
 import { ExpensesInstallmentsDTO } from "../DTO/expense_installments_DTO"
+import { ExpenseModel } from "./expense_model"
 
 
 export class ExpenseInstallmentsModel {
@@ -8,6 +10,8 @@ export class ExpenseInstallmentsModel {
     prestacoes: number
     parcela: number
     userId: number
+    data: Date
+
 
     constructor(value: ExpensesInstallmentsDTO, id?: number) {
         if (id) {
@@ -18,17 +22,19 @@ export class ExpenseInstallmentsModel {
         this.parcela = value.parcela
         this.prestacoes = value.prestacoes
         this.valorGasto = value.valorGasto
+        this.data = value.data
     }
 
-
+    
     static fromJson(json: any) {
+        const parcela = json.value_spent / json.prestacoes
         return new ExpenseInstallmentsModel({
+            userId: json.user_id,
             descricaoDespesa: json.description_spent,
             valorGasto: json.value_spent,
             prestacoes: json.prestacoes,
-            parcela: json.parcela,
-            userId: json.user_id
+            data: new Date(json.data) ,
+            parcela: parcela,
         })
     }
-
 }

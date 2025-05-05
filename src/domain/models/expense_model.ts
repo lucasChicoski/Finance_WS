@@ -1,5 +1,5 @@
 import { expenseDTO } from "../DTO/expense_DTO"
-
+import { v4 as uuidv4 } from 'uuid';
 
 export class ExpenseModel {
     id?: number
@@ -40,11 +40,11 @@ export class ExpenseModel {
 
     static fromJson(json: any) {
         //Separar mes e ano
-
+        const arrayDate = json.data.split('-')        
 
         return new ExpenseModel({
             categoria: json.categoria,
-            data: json.data,
+            data: new Date(json.data),
             tipoDespesa: json.tipoDespesa,
             descricao: json.descricao,
             valorGasto: json.valorGasto,
@@ -54,9 +54,9 @@ export class ExpenseModel {
             idCategory: json.id_category,
             prestacoes: json?.prestacoes ?? 1,
             parcela: json.parcela,
-            month: json.month,
-            year: json.year,
-            hash: 'asdasdasd'
+            month: parseInt(arrayDate[1]) ,
+            year: parseInt(arrayDate[0]),
+            hash: uuidv4()
         })
 
     }
