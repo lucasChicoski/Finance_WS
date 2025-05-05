@@ -22,7 +22,7 @@ export class ExpensesRepository implements IExpensesRepository {
                 is_divided: expense.isDivided,
                 month: expense.month,
                 parcela: expense.parcela,
-                prestacoes: expense.prestacoes,
+                quantidade_parcela: expense.quantidade_parcela,
                 tipo_despesa: expense.tipoDespesa,
                 valor_gasto: expense.valorGasto,
                 id_despesas_parceladas: expense.idDespesaParcelada,

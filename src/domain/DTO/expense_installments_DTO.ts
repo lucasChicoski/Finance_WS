@@ -3,7 +3,7 @@
 export interface ExpensesInstallmentsDTO {
     descricaoDespesa: string,
     valorGasto: number,
-    prestacoes: number,
+    quantidade_parcela: number,
     parcela: number,
     userId: number
     data: Date

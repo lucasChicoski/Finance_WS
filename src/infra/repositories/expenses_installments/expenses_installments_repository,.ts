@@ -21,7 +21,7 @@ export class ExpensesInstallmentsRepository implements IExpensesInstallmentsRepo
                 descricao_despesa: expense.descricaoDespesa,
                 user_id: expense.userId,
                 valor_gasto: expense.valorGasto,
-                prestacoes: expense.prestacoes,
+                prestacoes: expense.quantidade_parcela,
                 parcela: expense.parcela,
                 date: expense.data
             }

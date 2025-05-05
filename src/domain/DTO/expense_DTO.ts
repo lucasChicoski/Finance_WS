@@ -5,7 +5,7 @@ export interface expenseDTO {
     data: Date
     categoria: string
     isDivided: boolean
-    prestacoes: number | null //Quantidade de prestações
+    quantidade_parcela: number | null //Quantidade de prestações
     parcela: number // Valor da parcela
     idUser: number
     idDespesaParcelada: number | null

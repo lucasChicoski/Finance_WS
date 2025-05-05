@@ -11,9 +11,6 @@ export class ExpenseService implements IExpensesService {
         this.expenseRepo = RepositoryFactory.getRepository(RepositoryTtype.Expense)
     }
     async createExpense(expense: ExpenseModel): Promise<any> {
-
-        
-
         const result = await this.expenseRepo.createExpnese(expense)
         return result
     }

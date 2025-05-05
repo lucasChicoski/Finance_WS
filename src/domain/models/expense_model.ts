@@ -11,7 +11,7 @@ export class ExpenseModel {
     isDivided: boolean
     idUser: number
     idDespesaParcelada: number | null
-    prestacoes: number
+    quantidade_parcela: number
     parcela: number
     idCategory: number
     month: number
@@ -31,7 +31,7 @@ export class ExpenseModel {
         this.idUser = value.idUser
         this.idDespesaParcelada = value?.idDespesaParcelada ?? null
         this.idCategory = value.idCategory
-        this.prestacoes = value?.prestacoes ?? 1 //Quantidade de prestações
+        this.quantidade_parcela = value?.quantidade_parcela ?? 1 //Quantidade de prestações
         this.parcela = value.parcela // Valor da parcela
         this.month = value.month
         this.year = value.year
@@ -52,7 +52,7 @@ export class ExpenseModel {
             idUser: json.id_user,
             idDespesaParcelada: json?.id_despesas_parceladas ?? null,
             idCategory: json.id_category,
-            prestacoes: json?.prestacoes ?? 1,
+            quantidade_parcela: json?.quantidade_parcela ?? 1,
             parcela: json.parcela,
             month: parseInt(arrayDate[1]) ,
             year: parseInt(arrayDate[0]),
