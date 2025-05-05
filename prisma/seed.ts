@@ -83,7 +83,7 @@ async function financeConfig() {
 
 
 async function main() {
-    // await seedUser()
+    await seedUser()
     // await financeConfig()
     await seedCategoryExpenses()
 }

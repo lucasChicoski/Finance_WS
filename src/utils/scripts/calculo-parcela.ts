@@ -26,7 +26,7 @@ export function calculoParcela({data, idDespesasParceladas, quantidade_parcela, 
             year++
             month = 1
         } else {
-            month++
+            if(i != 0) month++
         }
 
         const exp = new ExpenseModel({
