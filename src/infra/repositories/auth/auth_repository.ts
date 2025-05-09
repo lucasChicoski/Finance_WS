@@ -9,21 +9,22 @@ export class AuthRepository implements IAuthRepository {
         this.prismaDB = prismaInstance
     }
     async login(user: AuthDTO): Promise<any> {
-
+        const currentYear = new Date().getFullYear()
+        const currentMonth = new Date().getMonth() + 1
         try {
             const result = await this.prismaDB.user.findUnique({
                 where: {
                     cpf: user.cpf, AND: { password: user.passwd }
                 },
                 select: {
-                    id: false,
+                    id: true,
                     email: true,
                     password: false,
                     nome: true,
                     sobrenome: true,
                     cpf: true,
-                    Despesas: true,
-                    despesasParceladas: true,
+                    // Despesas: true,
+                    // despesasParceladas: true,
                     finance_config: true
                 },
             })

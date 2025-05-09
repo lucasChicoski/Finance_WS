@@ -25,11 +25,7 @@ export class AuthService implements IAuthService {
     async login(user: AuthDTO): Promise<StatusReq> {
         const result = await this.repo.login(user) as UserModel
         
-
         if (result) {
-
-            const resultado = Object.values(agrupadorDespesas(result.Despesas));
-            result.despesasAgrupadas = resultado
             return new StatusReq(200, result, 'Login realizado com sucesso')
         }
 
