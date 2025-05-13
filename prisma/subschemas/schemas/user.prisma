@@ -11,7 +11,8 @@ model User {
    telefone           String?
    password           String               @default("")
    cpf                String               @unique @default("")
-   finance_config      FinanceConfig?
+   finance_config     FinanceConfig?
    Despesas           Despesas[]
    despesasParceladas DespesasParceladas[]
 }
+
