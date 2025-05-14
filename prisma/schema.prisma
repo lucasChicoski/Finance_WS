@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon May 12 2025 22:25:06 GMT-0300 (Brasilia Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Tue May 13 2025 22:59:57 GMT-0300 (Brasilia Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -29,12 +29,12 @@ model Despesas {
   hash                   String              @unique
   date                   DateTime
   is_divided             Boolean
+  user                   User                @relation(fields: [id_user], references: [id])
   id_user                Int
+  despesas_parceladas    DespesasParceladas? @relation(fields: [id_despesas_parceladas], references: [id])
   id_despesas_parceladas Int?
   id_category            Int
   category               CategoryExpenses    @relation(fields: [id_category], references: [id])
-  despesas_parceladas    DespesasParceladas? @relation(fields: [id_despesas_parceladas], references: [id])
-  user                   User                @relation(fields: [id_user], references: [id])
 }
 
 model DespesasParceladas {
@@ -67,7 +67,7 @@ model User {
   telefone           String?
   password           String               @default("")
   cpf                String               @unique @default("")
+  finance_config     FinanceConfig?
   Despesas           Despesas[]
   despesasParceladas DespesasParceladas[]
-  finance_config     FinanceConfig?
 }
