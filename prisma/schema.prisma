@@ -1,3 +1,5 @@
+//🧩Don't Edit this file.✨Generated in Mon May 12 2025 22:25:06 GMT-0300 (Brasilia Standard Time)✨
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -39,12 +41,12 @@ model DespesasParceladas {
   id                  Int        @id @default(autoincrement())
   descricao_despesa   String
   valor_gasto         Float
-  prestacoes          Float
-  parcela             Int
+  quantidade_parcela  Int
+  parcela             Float
   date                DateTime
-  user_id             Int
   despesas_parceladas Despesas[]
-  user                User       @relation(fields: [user_id], references: [id])
+  id_user             Int
+  user                User       @relation(fields: [id_user], references: [id])
 }
 
 model FinanceConfig {

@@ -11,7 +11,7 @@ export class ExpensesInstallmentsRepository implements IExpensesInstallmentsRepo
         this.prismaDB = prismaInstance
     }
     async getInstallmentsExpense(userId: number): Promise<any> {
-        const response = await this.prismaDB.despesasParceladas.findMany({ where: { user_id: userId } })
+        const response = await this.prismaDB.despesasParceladas.findMany({ where: { id_user: userId } })
         return response
     }
     
@@ -19,9 +19,9 @@ export class ExpensesInstallmentsRepository implements IExpensesInstallmentsRepo
         const response = await this.prismaDB.despesasParceladas.create({
             data: {
                 descricao_despesa: expense.descricaoDespesa,
-                user_id: expense.userId,
+                id_user: expense.userId,
                 valor_gasto: expense.valorGasto,
-                prestacoes: expense.quantidade_parcela,
+                quantidade_parcela: expense.quantidade_parcela,
                 parcela: expense.parcela,
                 date: expense.data
             }

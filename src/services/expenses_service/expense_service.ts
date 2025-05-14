@@ -3,8 +3,8 @@ import { ExpenseModel } from "../../domain/models/expense_model";
 import { RepositoryFactory, RepositoryTtype } from "../../global/IOC";
 import { ExpensesRepository } from "../../infra/repositories/expenses/expenses_repository";
 import { agrupadorDespesas } from "../../utils/agrupadores/agrupador-despesas";
-import { IUserConfigFinanceService } from "../user_config_finance_service/i_user_config_finance_service";
 import { IExpensesService } from "./i_expense_service";
+import { IUserConfigFinanceService } from "../user_config_finance_service/i_user_config_finance_service";
 
 
 export class ExpenseService implements IExpensesService {
