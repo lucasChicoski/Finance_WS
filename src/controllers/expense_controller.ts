@@ -12,7 +12,7 @@ export class ExpenseController {
 
     async createExpnese(req: Request, res: Response) {
         const expenseModel: any = ExpenseModel.fromJson(req.body)
-        const result = await this.expenseService.createExpense(expenseModel as ExpenseModel)
+        const result = await this.expenseService.createExpense(expenseModel as ExpenseModel, true)
         res.json(result)
     }
 

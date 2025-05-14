@@ -2,9 +2,9 @@ import { financeConfigDTO } from "../DTO/finance_config_DTO"
 
 export class FinanceConfigModel {
     id?: number
-    renda: number
-    guardeDinheiro: number
-    balance: number
+    renda?: number
+    guardeDinheiro?: number
+    balance?: number
     userId: number
 
 

@@ -24,13 +24,13 @@ export class ExpenseInstallmentsModel {
 
     
     static fromJson(json: any) {
-        const parcela = json.value_spent / json.quantidade_parcela
+        const parcela = json.valor_gasto / json.quantidade_parcela
         return new ExpenseInstallmentsModel({
-            userId: json.user_id,
-            descricaoDespesa: json.description_spent,
-            valorGasto: json.value_spent,
+            userId: json.id_user,
+            descricaoDespesa: json.descricao_despesa,
+            valorGasto: json.valor_gasto,
             quantidade_parcela: json.quantidade_parcela,
-            data: new Date(json.data) ,
+            data: new Date(json.date) ,
             parcela: parcela,
         })
     }
