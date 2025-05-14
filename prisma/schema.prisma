@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon May 12 2025 22:25:06 GMT-0300 (Brasilia Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Tue May 13 2025 22:59:57 GMT-0300 (Brasilia Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -50,12 +50,12 @@ model DespesasParceladas {
 }
 
 model FinanceConfig {
-  id              Int   @id @default(autoincrement())
-  renda           Float
-  guarde_dinheiro Float
-  balance         Float
-  user_id         Int   @unique
-  user            User  @relation(fields: [user_id], references: [id])
+  id              Int    @id @default(autoincrement())
+  renda           Float?
+  guarde_dinheiro Float?
+  balance         Float?
+  user_id         Int    @unique
+  user            User   @relation(fields: [user_id], references: [id])
 }
 
 model User {
