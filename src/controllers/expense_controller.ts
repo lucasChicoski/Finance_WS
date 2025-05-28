@@ -13,7 +13,7 @@ export class ExpenseController {
     async createExpnese(req: Request, res: Response) {
         const expenseModel: any = ExpenseModel.fromJson(req.body)
         const result = await this.expenseService.createExpense(expenseModel as ExpenseModel, true)
-        res.json(result)
+        return res.json(StatusReq.response('200', result, 'Despesa inserida com sucesso'))
     }
 
     updateExpnese(req: Request, res: Response) { }

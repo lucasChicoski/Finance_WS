@@ -12,7 +12,6 @@ export class UserConfigFinanceService implements IUserConfigFinanceService {
         this.financeRepo = RepositoryFactory.getRepository(RepositoryTtype.FinanceConfig)
     }
 
-
     async getFinanceConfig(userId: number): Promise<any> {
         const result = await this.financeRepo.getFinanceConfig(userId)
         return result

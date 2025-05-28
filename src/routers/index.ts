@@ -7,6 +7,7 @@ import { installmentsExpensesRouters } from "./expenses/installments_expenses";
 import { categoryRouters } from "./category/category";
 import { queries } from "./query/queries";
 import { authRouters } from "./auth/auth";
+import { routeTeste } from "./route-teste/route.teste";
 
 
 function indexRouters(app: Router) {
@@ -18,6 +19,7 @@ function indexRouters(app: Router) {
     categoryRouters(app)
     queries(app)
     authRouters(app)
+    routeTeste(app)
 }
 
 
