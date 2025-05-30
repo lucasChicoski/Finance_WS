@@ -21,10 +21,9 @@ export class ExpenseService implements IExpensesService {
         if(calculateBalance){
             this.configUserRepo.getFinanceConfig(expense.idUser).then( async (result: FinanceConfig) =>  {
                 const balance = result?.balance ? result?.balance - expense.valorGasto : 0
-                await this.configUserRepo.upateFinanceConfig({ userId: expense.idUser, balance: balance }) //Não mais necessário Refatorar
+                await this.configUserRepo.upateFinanceConfig({ userId: expense.idUser, balance: balance }) //Não mais necessário. Refatorar
             })
         }
-
 
         return result
     }
