@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { UserConfigFinanceService } from "../services/user_config_finance_service/user_config_finance_service";
+import { StatusReq } from "../global/status_req";
 
 
 
@@ -22,7 +23,7 @@ export class UserConfigFinanceController {
 
         if (userId) {
             const result = await this.configFinanceService.getFinanceConfig(userId)
-            return res.json(result)
+             return res.json(StatusReq.response('200', result, 'Busca realizada com sucesso'))
         }
 
         return 'userId não informado'
