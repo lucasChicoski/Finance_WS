@@ -17,14 +17,6 @@ export class ExpenseService implements IExpensesService {
     }
     async createExpense(expense: ExpenseModel, calculateBalance: boolean): Promise<any> {
         const result: Despesas = await this.expenseRepo.createExpnese(expense)
-
-        if(calculateBalance){
-            this.configUserRepo.getFinanceConfig(expense.idUser).then( async (result: FinanceConfig) =>  {
-                // const balance = result?.balance ? result?.balance - expense.valorGasto : 0
-                // await this.configUserRepo.upateFinanceConfig({ userId: expense.idUser, balance: balance }) //Não mais necessário. Refatorar
-            })
-        }
-
         return result
     }
     async updateExpense(expense: ExpenseModel): Promise<any> {
@@ -36,7 +28,8 @@ export class ExpenseService implements IExpensesService {
         return Object.values(agrupadorDespesas(result));
     }
     async deleteExpense(hash: string): Promise<any> {
-        const result = await this.expenseRepo.deleteExpense(hash)
+        const result: Despesas = await this.expenseRepo.deleteExpense(hash)
+        await this.configUserRepo.getFinanceConfig(1)
         return result
     }
 }
