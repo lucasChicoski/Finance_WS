@@ -1,6 +1,6 @@
 
 
-export interface ExpensesInstallmentsDTO {
+export type ExpensesInstallmentsDTO = {
     descricaoDespesa: string,
     valorGasto: number,
     quantidade_parcela: number,

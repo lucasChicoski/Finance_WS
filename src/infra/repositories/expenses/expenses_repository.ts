@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { IExpensesRepository } from "./i_expenses_repository";
+import {  IExpensesRepository } from "./i_expenses_repository";
 import { ExpenseModel } from "../../../domain/models/expense_model";
+import { ExpenseUpdateDTO } from "../../../domain/DTO/update_expese";
 
 
 export class ExpensesRepository implements IExpensesRepository {
@@ -34,8 +35,16 @@ export class ExpensesRepository implements IExpensesRepository {
 
         return result
     }
-    updateExpnese(expense: ExpenseModel): Promise<any> {
-        throw new Error("Method not implemented.");
+    async updateExpnese(expense: ExpenseUpdateDTO): Promise<any> {
+        const result = await this.prismaDB.despesas.update({
+            where: { hash: expense.hash },
+            data: {
+                valor_gasto: expense.valor_gasto,
+                parcela: expense.valor_gasto,
+                descricao_despesa: expense?.descricao
+            }
+        })
+        return result
     }
     async getExpense(userId: number): Promise<any> {
         const currentYear = new Date().getFullYear()

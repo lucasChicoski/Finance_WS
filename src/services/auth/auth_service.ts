@@ -2,18 +2,8 @@ import { UserModel } from "../../domain/models/user_model"
 import { RepositoryFactory, RepositoryTtype } from "../../global/IOC"
 import { IAuthService } from "./i_auth_service"
 import IAuthRepository from "../../infra/repositories/auth/i_auth_repository"
-import AuthDTO from "../../domain/DTO/auth_DTO"
+import {AuthDTO} from "../../domain/DTO/auth_DTO"
 import { StatusReq } from "../../global/status_req"
-import { agrupadorDespesas } from "../../utils/agrupadores/agrupador-despesas"
-
-type GroupedList = {
-    year: number,
-    month: number,
-    monthText: string,
-    itens: Array<any>
-}
-
-
 
 export class AuthService implements IAuthService {
 

@@ -5,6 +5,8 @@ import { ExpensesRepository } from "../../infra/repositories/expenses/expenses_r
 import { agrupadorDespesas } from "../../utils/agrupadores/agrupador-despesas";
 import { IExpensesService } from "./i_expense_service";
 import { IUserConfigFinanceService } from "../user_config_finance_service/i_user_config_finance_service";
+import { ExpenseUpdateDTO } from "../../domain/DTO/update_expese";
+
 
 
 export class ExpenseService implements IExpensesService {
@@ -19,12 +21,12 @@ export class ExpenseService implements IExpensesService {
         const result: Despesas = await this.expenseRepo.createExpnese(expense)
         return result
     }
-    async updateExpense(expense: ExpenseModel): Promise<any> {
+    async updateExpense(expense: ExpenseUpdateDTO): Promise<any> {
         const result = await this.expenseRepo.updateExpnese(expense)
+        return result
     }
     async getExpense(userId: number): Promise<any> {
         const result = await this.expenseRepo.getExpense(userId)
-
         return Object.values(agrupadorDespesas(result));
     }
     async deleteExpense(hash: string): Promise<any> {

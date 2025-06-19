@@ -1,4 +1,4 @@
-export default interface AuthDTO {
+export type AuthDTO = {
     cpf: string
     passwd: string
 }

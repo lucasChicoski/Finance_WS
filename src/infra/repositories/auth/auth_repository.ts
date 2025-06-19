@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import AuthDTO from "../../../domain/DTO/auth_DTO";
+import { AuthDTO } from "../../../domain/DTO/auth_DTO";
 import IAuthRepository from "./i_auth_repository";
 
 export class AuthRepository implements IAuthRepository {

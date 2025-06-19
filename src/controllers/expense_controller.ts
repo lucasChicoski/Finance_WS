@@ -2,6 +2,8 @@ import { Request, Response } from "express"
 import { ExpenseService } from "../services/expenses_service/expense_service"
 import { ExpenseModel } from "../domain/models/expense_model"
 import { StatusReq } from "../global/status_req"
+import { ExpenseUpdateDTO } from "../domain/DTO/update_expese"
+
 
 export class ExpenseController {
     expenseService: ExpenseService
@@ -16,7 +18,11 @@ export class ExpenseController {
         return res.json(StatusReq.response('200', result, 'Despesa inserida com sucesso'))
     }
 
-    updateExpnese(req: Request, res: Response) { }
+    async updateExpnese(req: Request, res: Response) { 
+        const expenseUpdate: ExpenseUpdateDTO = req.body
+        const result = await this.expenseService.updateExpense(expenseUpdate)
+        return res.json(StatusReq.response('200', result, 'Despesa atualizada com sucesso'))
+    }
 
     async getExpense(req: Request, res: Response) {
         const id: number = req.body.user_id
