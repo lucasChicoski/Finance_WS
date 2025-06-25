@@ -16,6 +16,7 @@ export class UserConfigFinanceRepository implements IUserConfigFinanceRepository
         const result = await this.prismaDB.financeConfig.findUnique({ where: { user_id: userId } })
         return result
     }
+
     async createFinanceConfig(value: FinanceConfigModel): Promise<any> {
         const result = await this.prismaDB.financeConfig.create({
             data: {
@@ -28,7 +29,8 @@ export class UserConfigFinanceRepository implements IUserConfigFinanceRepository
 
         return result
     }
-    async upateFinanceConfig(value: FinanceConfigModel): Promise<any> {
+    
+    async updateFinanceConfig(value: FinanceConfigModel): Promise<any> {
         const result = await this.prismaDB.financeConfig.update({
             where: { user_id: value.userId }, data: {
                 balance: value.balance,

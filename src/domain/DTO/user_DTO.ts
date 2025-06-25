@@ -2,7 +2,7 @@ import { ExpenseModel } from "../models/expense_model";
 import { expenseDTO } from "./expense_DTO";
 
 
-export interface UserDTO {
+export type UserDTO = {
     id: number,
     name: string,
     lastName: string,

@@ -21,7 +21,7 @@ export class UserConfigFinanceService implements IUserConfigFinanceService {
         return result
     }
     async upateFinanceConfig(value: FinanceConfigModel): Promise<any> {
-        const result = await this.financeRepo.upateFinanceConfig(value)
+        const result = await this.financeRepo.updateFinanceConfig(value)
         return result
     }
 

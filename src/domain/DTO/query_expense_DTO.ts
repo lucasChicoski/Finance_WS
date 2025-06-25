@@ -1,4 +1,4 @@
-export interface QueryExpensesDTO {
+export type QueryExpensesDTO = {
     userId: number
     month?: number
 }
