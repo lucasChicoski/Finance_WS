@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Deploy para VPS
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd /caminho/do/seu/projeto
             git pull origin main
             npm install
