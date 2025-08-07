@@ -26,6 +26,6 @@ jobs:
 
       - name: Executa comando remoto na VPS
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 root@186.202.57.183 << EOF
             echo "Hello ${{ inputs.name }} from GitHub Actions"
           EOF
