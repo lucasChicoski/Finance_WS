@@ -19,6 +19,6 @@ jobs:
     steps:
       - name: Diga Hello World na VPS
         run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
             echo "Hello ${{ inputs.name }}"
           EOF
