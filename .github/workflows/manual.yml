@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-    
+
   workflow_dispatch:
     inputs:
       name:
-        description: 'Person to greet'
+        description: 'Nome para cumprimentar'
         default: 'World'
         required: true
         type: string
@@ -16,6 +16,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Adiciona chave SSH
         run: |
@@ -23,9 +24,8 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
-      - name: Executa comando remoto
+      - name: Executa comando remoto na VPS
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 root@186.202.57.183 << EOF
-            echo "Hello World"
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
+            echo "Hello ${{ inputs.name }} from GitHub Actions"
           EOF
-          
