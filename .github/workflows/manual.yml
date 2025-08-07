@@ -17,11 +17,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy para VPS
+      - name: Diga Hello World na VPS
         run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            cd /caminho/do/seu/projeto
-            git pull origin main
-            npm install
-            pm2 restart app-name || pm2 start index.js --name "app-name"
+          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
+            echo "Hello ${{ inputs.name }}"
           EOF
