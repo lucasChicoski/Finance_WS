@@ -25,7 +25,7 @@ jobs:
 
       - name: Executa comando remoto
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@186.202.57.183 << EOF
             echo "Hello World"
           EOF
           
