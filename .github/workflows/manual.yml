@@ -19,6 +19,6 @@ jobs:
     steps:
       - name: Diga Hello World na VPS
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
+          ssh root@186.202.57.183 << EOF
             echo "Hello ${{ inputs.name }}"
           EOF
