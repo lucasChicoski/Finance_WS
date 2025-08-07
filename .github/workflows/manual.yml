@@ -17,7 +17,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Diga Hello World na VPS
+      - name: Adiciona chave SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Executa comando remoto
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
             echo "Hello World"
